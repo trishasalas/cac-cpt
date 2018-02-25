@@ -19,26 +19,47 @@ get_header();
 				</div>
 			</div><!-- .archive-description -->
 			<?php
-			$the_query = new WP_Query( 'post_type=podcast' ); ?>
+			$the_query = new WP_Query( 'post_type=podcast' );
+			?>
 
-			<?php if ( $the_query->have_posts() ) : ?>
+			<?php
+			if ( $the_query->have_posts() ) :
+			?>
 			<div class="podcast-posts">
-				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php
+				while ( $the_query->have_posts() ) : $the_query->the_post();
+				?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 						<h2>
-							<?php the_title(); ?>
+							<?php
+							the_title();
+							?>
 						</h2>
 						<div class="entry-content">
-							<?php the_content(); ?>
+							<?php
+							the_content();
+							?>
 						</div>
 					</article>
-				<?php endwhile; ?>
+				<?php
+				endwhile;
+				?>
 
-				<?php wp_reset_postdata(); ?>
+				<?php
+				wp_reset_postdata();
+				?>
 
-				<?php else : ?>
-					<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
-				<?php endif; ?>
+				<?php
+				else :
+				?>
+					<p>
+						<?php
+						esc_html_e( 'Sorry, no posts matched your criteria.' );
+						?>
+					</p>
+				<?php
+				endif;
+				?>
 		</main><!-- #genesis-content -->
 	</div><!-- .content-sidebar-wrap -->
 
